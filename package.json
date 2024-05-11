@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "nodemon server.js",
+    "server": "node server.js",
     "both": "concurrently \"npm run start\" \"cd backend && npm run server\"",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
