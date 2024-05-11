@@ -5,7 +5,7 @@ const NoteState = (props) => {
   const host = "http://localhost:5000"
     const notesinitial = []
       const [notes, setNotes] = useState(notesinitial)
-
+// http://localhost:5000
        // Get all Note:
    const getNote = async ()=>{
     // Api Call
