@@ -1,32 +1,33 @@
 import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Login = (props) => {
-    
-    const [credentials, setcredentials] = useState({email: "", password: ""});
+
+    const [credentials, setcredentials] = useState({ email: "", password: "" });
     let navigate = useNavigate();
+    const host = process.env.REACT_APP_HOST;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/auth/login", {
+        const response = await fetch(`${host}/api/auth/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-      body: JSON.stringify({email: credentials.email, password: credentials.password}),
+            body: JSON.stringify({ email: credentials.email, password: credentials.password }),
         });
         const json = await response.json();
         console.log(json);
-        if(json.success){
+        if (json.success) {
             //save the authtoken and redirect
             localStorage.setItem("token", json.authtoken);
             props.showAlert("Logged in Successfully", "success");
             navigate("/");
         }
-        else{
+        else {
             props.showAlert("invalid Credentials", "danger");
         }
-        
+
     }
 
     const onChange = (e) => {
