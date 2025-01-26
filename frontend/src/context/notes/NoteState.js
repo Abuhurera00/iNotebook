@@ -6,7 +6,6 @@ const NoteState = (props) => {
   console.log(host, 'host')
   const notesinitial = []
   const [notes, setNotes] = useState(notesinitial)
-  // http://localhost:5000
   // Get all Note:
   const getNote = async () => {
     // Api Call
@@ -25,7 +24,7 @@ const NoteState = (props) => {
   // ADD a Note:
   const addNote = async (title, description, tag) => {
     // TODO Api Calls
-    // Api Call
+    // Api Call for adding note
     const response = await fetch(`${host}/api/notes/addnote`, {
       method: "POST",
       headers: {
@@ -40,7 +39,7 @@ const NoteState = (props) => {
 
   // Delete a Note:
   const deleteNote = async (id) => {
-    //  Api Calls
+    //  Api Calls for deleting note
     const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
       method: "DELETE",
       headers: {
@@ -56,7 +55,7 @@ const NoteState = (props) => {
   }
   // Edit a Note
   const updateNote = async (id, title, description, tag) => {
-    // Api Call
+    // Api Call for updating note
     const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
       method: "PUT",
       headers: {
