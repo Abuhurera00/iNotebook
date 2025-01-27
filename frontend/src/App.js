@@ -15,6 +15,7 @@ import Signup from './components/Signup';
 
 function App() {
   const [alert, setAlert] = useState(null);
+  // Showing the message for alert
   const showAlert = (message, type) => {
     setAlert({
       msg: message,
